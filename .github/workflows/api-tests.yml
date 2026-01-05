@@ -7,42 +7,11 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-
-            - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                  node-version: "20"
-
-            - name: Install Newman and HTML Reporter
-              run: |
-                  npm install -g newman newman-reporter-htmlextra
-
             - name: Install Postman CLI
               run: |
                   curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
-
             - name: Login to Postman CLI
               run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
-
-            - name: Export Collection and Environment
+            - name: Run API tests
               run: |
-                  postman collection get "44354745-6ac07b56-635d-456c-8397-b141013a40f2" --output collection.json
-                  postman environment get "44354745-fec5f245-20b7-4844-bb1a-c8b25bf90dca" --output environment.json
-
-            - name: Create test results directory
-              run: mkdir -p test-results
-
-            - name: Run API tests with Newman
-              continue-on-error: true
-              run: |
-                  newman run collection.json \
-                    -e environment.json \
-                    -r htmlextra,cli \
-                    --reporter-htmlextra-export ./test-results/report.html
-
-            - name: Upload Test Results
-              uses: actions/upload-artifact@v4
-              if: always()
-              with:
-                  name: test-results
-                  path: test-results/
+                  postman collection run "44354745-6ac07b56-635d-456c-8397-b141013a40f2" -e "44354745-fec5f245-20b7-4844-bb1a-c8b25bf90dca"
