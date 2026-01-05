@@ -122,27 +122,32 @@ To run this project in your own GitHub repository:
 
 ## 📸 Visual Documentation
 
-> **Note**: See [screenshots/README.md](screenshots/README.md) for detailed instructions on capturing these screenshots.
-
 ### Postman Collection Structure
 
-![Collection Structure](screenshots/collection-structure.png)
+![Collection Structure](screenshots/collection-structure-and-results.png)
 _Complete view of the API test collection organized by endpoint categories_
-
-### Test Execution Results
-
-![Test Results](screenshots/test-results.png)
-_Successful test execution showing all assertions passing with green checkmarks_
 
 ### Test Scripts Examples
 
-![Test Scripts](screenshots/test-scripts.png)
-_Sample test assertions, pre-request validations, and schema validation code_
+#### Authentication - Pre-request Script
 
-### CI/CD Pipeline
+![Auth Pre-request Script](screenshots/auth-create-token-pre-request-script.png)
+_Pre-request validation for authentication endpoint ensuring proper request body structure_
 
-![GitHub Actions](screenshots/github-actions.png)
-_Automated tests running successfully in GitHub Actions workflow_
+#### Authentication - Post-response Script
+
+![Auth Post-response Script](screenshots/auth-createtoken-post-response-script.png)
+_Post-response tests validating token generation and environment variable storage_
+
+#### Create Booking - Post-response Script
+
+![Create Booking Post-response Script](screenshots/booking-createbooking-post-response-script.png)
+_Response validation and booking ID extraction for create booking endpoint_
+
+#### Get Booking - Post-response Script
+
+![Get Booking Post-response Script](screenshots/booking-getbooking-post-response-script.png)
+_Data integrity checks and schema validation for get booking endpoint_
 
 ## 📋 Detailed Test Cases
 
