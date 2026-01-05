@@ -24,13 +24,18 @@ jobs:
             - name: Login to Postman CLI
               run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
 
+            - name: Export Collection and Environment
+              run: |
+                  postman collection get "44354745-6ac07b56-635d-456c-8397-b141013a40f2" --output collection.json
+                  postman environment get "44354745-fec5f245-20b7-4844-bb1a-c8b25bf90dca" --output environment.json
+
             - name: Create test results directory
               run: mkdir -p test-results
 
             - name: Run API tests with Newman
               run: |
-                  postman collection run "44354745-6ac07b56-635d-456c-8397-b141013a40f2" \
-                    -e "44354745-fec5f245-20b7-4844-bb1a-c8b25bf90dca" \
+                  newman run collection.json \
+                    -e environment.json \
                     -r htmlextra,cli \
                     --reporter-htmlextra-export ./test-results/report.html
 
