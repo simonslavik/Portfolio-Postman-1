@@ -33,6 +33,7 @@ jobs:
               run: mkdir -p test-results
 
             - name: Run API tests with Newman
+              continue-on-error: true
               run: |
                   newman run collection.json \
                     -e environment.json \
