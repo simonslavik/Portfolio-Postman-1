@@ -24,6 +24,9 @@ jobs:
             - name: Login to Postman CLI
               run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
 
+            - name: Create test results directory
+              run: mkdir -p test-results
+
             - name: Run API tests with Newman
               run: |
                   postman collection run "44354745-6ac07b56-635d-456c-8397-b141013a40f2" \
