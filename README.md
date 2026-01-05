@@ -79,6 +79,8 @@ Portfolio-Postman/
 │   │   └── restful-booker-API.postman_collection.json
 │   └── environments/
 │       └── RESTUFUL_BOOKER_ENV.postman_environment.json
+├── screenshots/                    # Visual documentation
+│   └── README.md                   # Screenshot capture guide
 └── README.md
 ```
 
@@ -118,6 +120,10 @@ To run this project in your own GitHub repository:
 3. Add `POSTMAN_API_KEY` secret with your [Postman API key](https://go.postman.co/settings/me/api-keys)
 4. Push changes to trigger the workflow
 
+## 📸 Visual Documentation
+
+> **Note**: See [screenshots/README.md](screenshots/README.md) for detailed instructions on capturing these screenshots.
+
 ### Postman Collection Structure
 
 ![Collection Structure](screenshots/collection-structure.png)
@@ -126,17 +132,17 @@ _Complete view of the API test collection organized by endpoint categories_
 ### Test Execution Results
 
 ![Test Results](screenshots/test-results.png)
-_Successful test execution showing all assertions passing_
+_Successful test execution showing all assertions passing with green checkmarks_
 
 ### Test Scripts Examples
 
 ![Test Scripts](screenshots/test-scripts.png)
-_Sample of test assertions and schema validation_
+_Sample test assertions, pre-request validations, and schema validation code_
 
 ### CI/CD Pipeline
 
 ![GitHub Actions](screenshots/github-actions.png)
-_Automated tests running in GitHub Actions_
+_Automated tests running successfully in GitHub Actions workflow_
 
 ## 📋 Detailed Test Cases
 
